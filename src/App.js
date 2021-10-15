@@ -1,10 +1,14 @@
 import './App.css';
+import 'bootstrap-4-grid/css/grid.css';
+import Routes from "./Components/Routes";
+import { GlobalStyles } from '@mui/material';
 
 function App() {
     return (
-        <div className="">
-            CRUD
-        </div>
+        <>
+            <GlobalStyles />
+            <Routes/>
+        </>
     );
 }
 
