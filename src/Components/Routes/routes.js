@@ -4,6 +4,7 @@ import {
     Switch,
     Route,
 } from 'react-router-dom';
+import Authorization from "../Authorization";
 
 const HomePage = lazy(() => import("../HomePage/homePage"));
 const TasksPage = lazy(() => import("../TasksPage/tasksPage"));
@@ -14,15 +15,17 @@ const Routes = () => {
         <Suspense fallback={'loading ...'}>
             <Router>
                 <Switch>
-                    <Route exact path={"/"}>
-                        <TasksPage />
-                    </Route>
-                    <Route exact path={"/home"}>
-                        <HomePage />
-                    </Route>
-                    <Route exact path={"/tasks"}>
-                        <LoginPage />
-                    </Route>
+                    <Authorization>
+                        <Route exact path={"/"}>
+                            <LoginPage />
+                        </Route>
+                        <Route exact path={"/home"}>
+                            <HomePage />
+                        </Route>
+                        <Route exact path={"/tasks"}>
+                            <TasksPage />
+                        </Route>
+                    </Authorization>
                 </Switch>
             </Router>
         </Suspense>

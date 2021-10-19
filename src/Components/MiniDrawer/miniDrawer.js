@@ -15,6 +15,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { useMiniDrawer } from "../../Talons/MiniDrawer/useMiniDrawer";
+import { useSelector} from "react-redux";
 
 const drawerWidth = 240;
 
@@ -72,6 +73,7 @@ const MiniDrawer = props => {
         handleDrawerOpen,
         handleDrawerClose
     } = useMiniDrawer();
+    const state = useSelector(state => state)
 
     return (
         <Box sx={{ display: 'flex' }}>
@@ -87,7 +89,7 @@ const MiniDrawer = props => {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        CRUD
+                        Tasks {state.user.name}
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -112,7 +114,7 @@ const MiniDrawer = props => {
                 <Divider />
                 <List>
                     {data.map((elem, index) => (
-                        <ListItem button key={index} onClick={() => handleRediref(elem)}>
+                        <ListItem button key={index} onClick={() => handleRediref(elem.path)}>
                             <ListItemIcon>
                                 {elem.icon}
                             </ListItemIcon>

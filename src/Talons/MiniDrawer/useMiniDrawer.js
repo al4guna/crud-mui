@@ -2,7 +2,10 @@ import HomeIcon from '@mui/icons-material/Home';
 import PeopleIcon from '@mui/icons-material/People';
 import TaskIcon from '@mui/icons-material/Task';
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { logoutAction } from "../../redux/action/userAction";
+
 
 const DATA_MENU = [
     {
@@ -13,7 +16,7 @@ const DATA_MENU = [
     {
         label: 'Tareas',
         icon: <TaskIcon />,
-        path: '/tareas'
+        path: '/tasks'
     },
     {
         label: 'Cerrar Sesión',
@@ -25,6 +28,7 @@ const DATA_MENU = [
 export const useMiniDrawer = () => {
     const [open, setOpen] = useState(false);
     const history = useHistory();
+    const dispatch = useDispatch();
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -35,9 +39,12 @@ export const useMiniDrawer = () => {
     };
 
     const handleRediref = (url) => {
-        history.push(url);
+        if(url !== "/") {
+            history.push(url);
+        }else {
+            dispatch(logoutAction());
+        }
     }
-
 
     return {
         open,
