@@ -9,11 +9,14 @@ export const useStyle = makeStyles({
     modal: {
         top: '50%',
         left: '50%',
-        width: '85%',
+        width: '98%',
         padding: '40px',
         borderRadius: '8px',
         position: 'absolute',
         backgroundColor: '#fff',
         transform: 'translate(-50%, -50%)',
+        '@media (min-width:780px)': {
+            width: '90%',
+        }
     }
 });

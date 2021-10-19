@@ -39,7 +39,7 @@ const Form = props => {
     return (
         <div className={classes.form}>
             <div className={'row justify-content-between'}>
-                <div className={'col-7'}>
+                <div className={'col-12 col-lg-7'}>
                     <div className={'row my-4'}>
                         <div className={'col'}>
                             <div className={'row'}>
@@ -77,7 +77,7 @@ const Form = props => {
                         </div>
                     </div>
                 </div>
-                <div className={['col-4 px-4 py-2', classes.formRight].join(' ')}>
+                <div className={['col-12 col-lg-4 px-4 py-2', classes.formRight].join(' ')}>
                     <div className={'row my-4'}>
                         <div className={'col-5'}>
                             <Typography variantMapping={'p'}>Status</Typography>
@@ -136,7 +136,7 @@ const Form = props => {
                 </div>
             </div>
             <div className={'row justify-content-end'}>
-                <div className={'col-2 mt-4'}>
+                <div className={'col-5 col-md-2 mt-4'}>
                     <Button
                         onClick={handleClose}
                         className={'col'}
@@ -145,7 +145,7 @@ const Form = props => {
                         Cerrar
                     </Button>
                 </div>
-                <div className={'col-3 mt-4'}>
+                <div className={'col-5 col-md-3 mt-4'}>
                     <Button
                         className={'col'}
                         variant="contained"
