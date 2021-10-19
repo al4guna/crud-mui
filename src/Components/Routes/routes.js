@@ -17,10 +17,10 @@ const Routes = () => {
                     <Route exact path={"/"}>
                         <TasksPage />
                     </Route>
-                    <Route exact path={"/"}>
+                    <Route exact path={"/home"}>
                         <HomePage />
                     </Route>
-                    <Route exact path={"/"}>
+                    <Route exact path={"/tasks"}>
                         <LoginPage />
                     </Route>
                 </Switch>

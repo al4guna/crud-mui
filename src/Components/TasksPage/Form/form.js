@@ -14,10 +14,12 @@ import {useForm} from "../../../Talons/TasksPage/Form/useForm";
 const Form = props => {
     const classes = useStyle();
     const {
-        handleClose
+        handleClose,
+        handleChangeReload
     } = props;
 
     const {
+        item,
         status,
         labels,
         storyPoint,
@@ -26,8 +28,13 @@ const Form = props => {
         handleStatus,
         handleLabels,
         handleStoryPoint,
-        handleSubmit
-    } = useForm();
+        handleSubmit,
+        handleUpdate,
+        handleDelete
+    } = useForm({
+        handleClose,
+        handleChangeReload
+    });
 
     return (
         <div className={classes.form}>
@@ -142,20 +149,24 @@ const Form = props => {
                     <Button
                         className={'col'}
                         variant="contained"
-                        onClick={handleSubmit}
+                        onClick={!item ? handleSubmit : handleUpdate}
                     >
-                        Crear
+                        {!item ? 'Create' : 'Update'}
                     </Button>
                 </div>
             </div>
-            <div className={classes.buttonClose}>
+            { item &&
+            <div className={classes.containerDelete}>
                 <Fab
                     aria-label="delete"
+                    onClick={handleDelete}
                     classes={{root: classes.buttonDelete}}
                 >
                     <DeleteIcon />
                 </Fab>
             </div>
+            }
+
         </div>
     );
 }

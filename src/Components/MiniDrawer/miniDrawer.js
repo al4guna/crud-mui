@@ -68,6 +68,7 @@ const MiniDrawer = props => {
     const {
         data,
         open,
+        handleRediref,
         handleDrawerOpen,
         handleDrawerClose
     } = useMiniDrawer();
@@ -111,7 +112,7 @@ const MiniDrawer = props => {
                 <Divider />
                 <List>
                     {data.map((elem, index) => (
-                        <ListItem button key={index}>
+                        <ListItem button key={index} onClick={() => handleRediref(elem)}>
                             <ListItemIcon>
                                 {elem.icon}
                             </ListItemIcon>

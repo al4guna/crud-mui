@@ -8,7 +8,7 @@ export const useStyle = makeStyles({
         borderRadius: "8px",
         border: "0.5px solid #e9e9e9"
     },
-    buttonClose: {
+    containerDelete: {
         top: '-70px',
         left: "50%",
         position: "absolute",

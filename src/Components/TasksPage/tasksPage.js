@@ -5,14 +5,17 @@ import AddIcon from '@mui/icons-material/Add';
 import { useStyle } from './tasksPage.css';
 import { Box, Modal } from "@mui/material";
 import Form from "./Form";
+import Board from "./Board";
 import { useTasksPage } from "../../Talons/TasksPage/useTasksPage";
 
 const TasksPage = () => {
     const classes = useStyle();
     const {
         open,
+        reload,
         handleOpen,
-        handleClose
+        handleClose,
+        handleChangeReload
     } = useTasksPage();
 
     return (
@@ -20,11 +23,12 @@ const TasksPage = () => {
             <MiniDrawer>
                 <div className={'row'}>
                     <div className={'col-12'}>
-                        ss
+                        <Board
+                            reload={reload}
+                        />
                     </div>
                 </div>
             </MiniDrawer>
-
             <div>
                 <Modal
                     open={open}
@@ -33,11 +37,11 @@ const TasksPage = () => {
                     <Box  className={classes.modal}>
                         <Form
                             handleClose={handleClose}
+                            handleChangeReload={handleChangeReload}
                         />
                     </Box>
                 </Modal>
             </div>
-
             <div className={classes.button}>
                 <Fab
                     color="primary"
