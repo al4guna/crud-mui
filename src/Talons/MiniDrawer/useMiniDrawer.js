@@ -1,17 +1,18 @@
 import HomeIcon from '@mui/icons-material/Home';
 import PeopleIcon from '@mui/icons-material/People';
+import TaskIcon from '@mui/icons-material/Task';
 import React, { useState } from "react";
 
 const DATA_MENU = [
     {
         label: 'Home',
         icon: <HomeIcon />,
-        path: '/'
+        path: '/home'
     },
     {
-        label: 'Usuarios',
-        icon: <PeopleIcon />,
-        path: '/usuarios'
+        label: 'Tareas',
+        icon: <TaskIcon />,
+        path: '/tareas'
     },
     {
         label: 'Cerrar Sesión',

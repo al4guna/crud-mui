@@ -15,7 +15,7 @@ export const useLoginPage = () => {
 
     const sendData = async () => {
         try {
-            const res = await axios.post('http://dev.nexttruck.draketechdev.ca:3600/api/login', {
+            await axios.post('http://dev.nexttruck.draketechdev.ca:3600/api/login', {
                 email,
                 password
             });
